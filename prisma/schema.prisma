@@ -30,3 +30,11 @@ model Session {
   collaborator  Boolean?  @default(false)
   emailVerified Boolean?  @default(false)
 }
+
+
+model Setting {
+id          String    @id @default(cuid())
+settingName String    @default("wishlistSetting")
+name        String
+description String?
+}

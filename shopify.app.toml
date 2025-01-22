@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "afe564c9cd07a3dc2d4bfa7229649ac7"
-application_url = "https://essentially-so-freeware-hungry.trycloudflare.com"
+application_url = "https://sat-content-denied-mexico.trycloudflare.com"
 embedded = true
 name = "wishlist"
 handle = "wishlist-498"
@@ -23,9 +23,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://essentially-so-freeware-hungry.trycloudflare.com/auth/callback",
-  "https://essentially-so-freeware-hungry.trycloudflare.com/auth/shopify/callback",
-  "https://essentially-so-freeware-hungry.trycloudflare.com/api/auth/callback"
+  "https://sat-content-denied-mexico.trycloudflare.com/auth/callback",
+  "https://sat-content-denied-mexico.trycloudflare.com/auth/shopify/callback",
+  "https://sat-content-denied-mexico.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]

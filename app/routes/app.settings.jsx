@@ -10,16 +10,58 @@ import {
 } from "@shopify/polaris";
 import { TitleBar } from "@shopify/app-bridge-react";
 import { useState } from "react";
+import { Form, useLoaderData } from "@remix-run/react";
+import prisma from "../db.server";
 
+export async function loader() {
+  const appSetting = await prisma.setting.findFirst({});
 
+  return new Response(JSON.stringify(appSetting), { status: 200 });
+}
 
+export async function action({ request }) {
+  const data = await request.formData();
+  const response = Object.fromEntries(data);
 
+  const existingSetting = await prisma.setting.findFirst({
+    where: {
+      settingName: "wishlistSetting",
+    },
+  });
+
+  if (!existingSetting) {
+    const newSetting = await prisma.setting.create({
+      data: {
+        name: response.name,
+        description: response.description,
+      },
+    });
+
+    return new Response(JSON.stringify(newSetting), { status: 200 });
+  }
+
+  const newSetting = await prisma.setting.upsert({
+    where: {
+      id: existingSetting.id,
+    },
+    create: {
+      name: response.name,
+      description: response.description,
+    },
+    update: {
+      name: response.name,
+      description: response.description,
+    },
+  });
+
+  return new Response(JSON.stringify(newSetting), { status: 200 });
+}
 
 export default function SettingsPage() {
-  const [formState, setFormState] = useState({
-    name: "",
-    description: "",
-  });
+  const data = useLoaderData();
+  const setting = JSON.parse(data);
+
+  const [formState, setFormState] = useState(setting);
 
   return (
     <Page>
@@ -41,22 +83,28 @@ export default function SettingsPage() {
             </BlockStack>
           </Box>
           <Card roundedAbove="sm">
-            <BlockStack gap="400">
-              <TextField
-                label="App name."
-                value={formState.name}
-                onChange={(e) => setFormState({ ...formState, name: e })}
-              />
-              <TextField
-                label="Description."
-                value={formState.description}
-                onChange={(e) => setFormState({ ...formState, description: e })}
-              />
+            <Form method="POST">
+              <BlockStack gap="400">
+                <TextField
+                  label="App name."
+                  name="name"
+                  value={formState.name}
+                  onChange={(e) => setFormState({ ...formState, name: e })}
+                />
+                <TextField
+                  label="Description."
+                  name="description"
+                  value={formState.description}
+                  onChange={(e) =>
+                    setFormState({ ...formState, description: e })
+                  }
+                />
 
-              <Button submit={true} variant="primary">
-                Save
-              </Button>
-            </BlockStack>
+                <Button submit={true} variant="primary">
+                  Save
+                </Button>
+              </BlockStack>
+            </Form>
           </Card>
         </InlineGrid>
       </BlockStack>
