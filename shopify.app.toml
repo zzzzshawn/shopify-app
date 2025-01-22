@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "afe564c9cd07a3dc2d4bfa7229649ac7"
-application_url = "https://sat-content-denied-mexico.trycloudflare.com"
+application_url = "https://needs-hygiene-clear-tony.trycloudflare.com"
 embedded = true
 name = "wishlist"
 handle = "wishlist-498"
@@ -23,9 +23,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://sat-content-denied-mexico.trycloudflare.com/auth/callback",
-  "https://sat-content-denied-mexico.trycloudflare.com/auth/shopify/callback",
-  "https://sat-content-denied-mexico.trycloudflare.com/api/auth/callback"
+  "https://needs-hygiene-clear-tony.trycloudflare.com/auth/callback",
+  "https://needs-hygiene-clear-tony.trycloudflare.com/auth/shopify/callback",
+  "https://needs-hygiene-clear-tony.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
@@ -34,3 +34,4 @@ embedded = false
 [build]
 dev_store_url = "skibididev.myshopify.com"
 automatically_update_urls_on_dev = true
+include_config_on_deploy = true
