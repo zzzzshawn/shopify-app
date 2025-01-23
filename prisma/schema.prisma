@@ -31,10 +31,17 @@ model Session {
   emailVerified Boolean?  @default(false)
 }
 
-
 model Setting {
-id          String    @id @default(cuid())
-settingName String    @default("wishlistSetting")
-name        String
-description String?
+  id          String  @id @default(cuid())
+  settingName String  @default("wishlistSetting")
+  name        String
+  description String?
+}
+
+model Wishlist {
+  id         String   @id @default(cuid())
+  customerId String?
+  productId  String?
+  shop       String?
+  createdAt  DateTime @default(now())
 }
