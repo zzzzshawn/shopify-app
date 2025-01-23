@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "afe564c9cd07a3dc2d4bfa7229649ac7"
-application_url = "https://needs-hygiene-clear-tony.trycloudflare.com"
+application_url = "https://assist-oecd-debug-technician.trycloudflare.com"
 embedded = true
 name = "wishlist"
 handle = "wishlist-498"
@@ -23,9 +23,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://needs-hygiene-clear-tony.trycloudflare.com/auth/callback",
-  "https://needs-hygiene-clear-tony.trycloudflare.com/auth/shopify/callback",
-  "https://needs-hygiene-clear-tony.trycloudflare.com/api/auth/callback"
+  "https://assist-oecd-debug-technician.trycloudflare.com/auth/callback",
+  "https://assist-oecd-debug-technician.trycloudflare.com/auth/shopify/callback",
+  "https://assist-oecd-debug-technician.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
