@@ -20,8 +20,16 @@
 <script>
     document.addEventListener('alpine:init', () => {
       Alpine.data('wishlist', () => ({ 
+        init(){
+          fetch(this.appUrl + "api/wishlist" + "?customerId={{ customer.id }}&productId={{ product.id }}&shop={{ shop.permanent_domain }}")
+            .then(response => response.json())
+            .then(result => {
+              this.wishlisted = true;
+            })
+            .catch(error => console.log('error', error));
+        },
           wishlisted: false,
-          appUrl: "https://interview-interior-phase-closes.trycloudflare.com",
+          appUrl: "https://begin-opinion-contests-austria.trycloudflare.com",
           addToWishlist() {
               {% unless customer %}
                   alert("Please login to add to wishlist");

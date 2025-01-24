@@ -1,5 +1,6 @@
 import { json } from "@remix-run/react";
 import prisma from "../db.server";
+import { cors } from "remix-utils/cors";
 
 export async function loader({ request }) {
   const url = new URL(request.url);
@@ -40,9 +41,12 @@ export async function action({ request }) {
     const _action = data._action;
 
     if (!customerId || !productId || !shop || !_action) {
-      return json({
-        error: "Missing required parameters",
-      });
+      return cors(
+        request,
+        json({
+          error: "Missing required parameters",
+        }),
+      );
     }
 
     let response;
@@ -62,7 +66,7 @@ export async function action({ request }) {
           wishlisted: true,
           data: wishlist,
         });
-        return response;
+        return cors(request, response);
 
       case "DELETE":
         await prisma.wishlist.deleteMany({
@@ -77,16 +81,22 @@ export async function action({ request }) {
           method: _action,
           wishlisted: false,
         });
-        return response;
+        return cors(request, response);
 
       default:
-        return json({
-          error: "Invalid action",
-        });
+        return cors(
+          request,
+          json({
+            error: "Invalid action",
+          }),
+        );
     }
   } catch (error) {
-    return json({
-      error: error.message,
-    });
+    return cors(
+      request,
+      json({
+        error: error.message,
+      }),
+    );
   }
 }
