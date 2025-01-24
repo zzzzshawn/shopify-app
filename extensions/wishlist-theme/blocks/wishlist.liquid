@@ -19,7 +19,7 @@
 
 <script>
     document.addEventListener('alpine:init', () => {
-      Alpine.data('wishlist', () => ({ 
+      Alpine.data('wishlist', () => ({   
         init() {
           fetch(
             this.appUrl +
@@ -50,7 +50,7 @@
             });
         },        
           wishlisted: false,
-          appUrl: "https://starts-potato-appointments-ceramic.trycloudflare.com",
+          appUrl: "https://engineer-render-police-into.trycloudflare.com",
           addToWishlist() {
               {% unless customer %}
                   alert("Please login to add to wishlist");

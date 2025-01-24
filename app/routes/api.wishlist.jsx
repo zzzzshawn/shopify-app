@@ -25,14 +25,14 @@ export async function loader({ request }) {
 
   const response = json({
     ok: true,
-    message: "success",
+    message: "success", 
     data: wishlist,
   });
 
   console.log("Wishlist data: " + JSON.stringify(wishlist));
 
   return cors(request, response);
-}
+} 
 
 export async function action({ request }) {
   try {
@@ -82,7 +82,7 @@ export async function action({ request }) {
         response = json({
           message: "Product removed from wishlist",
           method: _action,
-          wishlisted: false,
+          wishlisted: true,
         });
         return cors(request, response);
 
