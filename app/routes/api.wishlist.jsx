@@ -3,6 +3,7 @@ import prisma from "../db.server";
 import { cors } from "remix-utils/cors";
 
 export async function loader({ request }) {
+  console.log('loader running')
   const url = new URL(request.url);
   const customerId = url.searchParams.get("customerId");
   const productId = url.searchParams.get("productId");
@@ -28,7 +29,9 @@ export async function loader({ request }) {
     data: wishlist,
   });
 
-  return json(response);
+  console.log("Wishlist data: " + JSON.stringify(wishlist));
+
+  return cors(request, response);
 }
 
 export async function action({ request }) {

@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "afe564c9cd07a3dc2d4bfa7229649ac7"
-application_url = "https://begin-opinion-contests-austria.trycloudflare.com"
+application_url = "https://starts-potato-appointments-ceramic.trycloudflare.com"
 embedded = true
 name = "wishlist"
 handle = "wishlist-498"
@@ -23,9 +23,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://begin-opinion-contests-austria.trycloudflare.com/auth/callback",
-  "https://begin-opinion-contests-austria.trycloudflare.com/auth/shopify/callback",
-  "https://begin-opinion-contests-austria.trycloudflare.com/api/auth/callback"
+  "https://starts-potato-appointments-ceramic.trycloudflare.com/auth/callback",
+  "https://starts-potato-appointments-ceramic.trycloudflare.com/auth/shopify/callback",
+  "https://starts-potato-appointments-ceramic.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
